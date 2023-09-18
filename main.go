@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	var digits []float64             // переменна для хранения чисел полученных из файла
 	open, err := os.Open("data.txt") // открываем файл
 	if err != nil {                  // обрабатываем ошибку которая получилась при открытии файла
 		log.Fatal(err)
@@ -21,16 +22,18 @@ func main() {
 		if err != nil {                                    // обрабатываем ошибку которая получилась при преобразовании строки в вещественное число
 			log.Fatal(err)
 		}
-		fmt.Println(test)
+		digits = append(digits, test) //сохраняем полученные значения в массив
 
 	}
+
+	fmt.Println(digits) //выводим содержимое массива
 
 	err = open.Close() // закрываем файл
 	if err != nil {    // обрабатываем ошибку которая получилась при закрытии файла
 		log.Fatal(err)
 	}
 
-	if reader.Err() != nil { // если сканирование произошло с ошибкой
+	if reader.Err() != nil { // если сканирование произошло с ошибкойR
 		fmt.Println(reader.Err()) // выводим эту ошибку
 	}
 
