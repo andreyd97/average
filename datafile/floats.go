@@ -9,10 +9,10 @@ import (
 )
 
 func GetFloat(filename string) (float64, error) {
-	var digits []float64             // переменна для хранения чисел полученных из файла
-	var output float64               //Переменная для хранения среднего значения
-	open, err := os.Open("data.txt") // открываем файл
-	if err != nil {                  // обрабатываем ошибку которая получилась при открытии файла
+	var digits []float64           // переменна для хранения чисел полученных из файла
+	var output float64             //Переменная для хранения среднего значения
+	open, err := os.Open(filename) // открываем файл
+	if err != nil {                // обрабатываем ошибку которая получилась при открытии файла
 		log.Fatal(err)
 	}
 
